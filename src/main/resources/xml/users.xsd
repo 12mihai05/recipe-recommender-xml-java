@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <xs:simpleType name="cuisineType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Italian"/>
+            <xs:enumeration value="Asian"/>
+            <xs:enumeration value="Mexican"/>
+            <xs:enumeration value="French"/>
+            <xs:enumeration value="Romanian"/>
+            <xs:enumeration value="Indian"/>
+            <xs:enumeration value="American"/>
+            <xs:enumeration value="Mediterranean"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="skillLevelType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Beginner"/>
+            <xs:enumeration value="Intermediate"/>
+            <xs:enumeration value="Advanced"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="users">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" maxOccurs="unbounded" minOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="firstName" type="xs:string"/>
+                            <xs:element name="lastName" type="xs:string"/>
+                            <xs:element name="skillLevel" type="skillLevelType"/>
+                            <xs:element name="preferredCuisineType" type="cuisineType"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+

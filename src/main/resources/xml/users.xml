@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="users.xsd">
+    <user>
+        <firstName>Andrei</firstName>
+        <lastName>Popescu</lastName>
+        <skillLevel>Intermediate</skillLevel>
+        <preferredCuisineType>Italian</preferredCuisineType>
+    </user>
+</users>
+
+
