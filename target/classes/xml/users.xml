@@ -2,11 +2,15 @@
 <users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="users.xsd">
     <user>
-        <firstName>Andrei</firstName>
-        <lastName>Popescu</lastName>
+        <firstName>Pasaroiu</firstName>
+        <lastName>Mihai</lastName>
         <skillLevel>Intermediate</skillLevel>
         <preferredCuisineType>Italian</preferredCuisineType>
     </user>
+    <user>
+        <firstName>Alexia</firstName>
+        <lastName>Nica</lastName>
+        <skillLevel>Advanced</skillLevel>
+        <preferredCuisineType>Asian</preferredCuisineType>
+    </user>
 </users>
-
-

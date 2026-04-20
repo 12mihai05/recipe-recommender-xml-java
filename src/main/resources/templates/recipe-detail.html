@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+</head>
+<body>
+    <h1 th:text="${recipe != null ? recipe.title : 'Recipe Not Found'}"></h1>
+
+    <div th:if="${recipe != null}">
+        <p><strong>ID:</strong> <span th:text="${recipe.id}"></span></p>
+        <p><strong>Title:</strong> <span th:text="${recipe.title}"></span></p>
+        <p><strong>Cuisine Type 1:</strong> <span th:text="${recipe.cuisineType1}"></span></p>
+        <p><strong>Cuisine Type 2:</strong> <span th:text="${recipe.cuisineType2}"></span></p>
+        <p><strong>Difficulty:</strong> <span th:text="${recipe.difficulty}"></span></p>
+    </div>
+
+    <div th:if="${recipe == null}">
+        <p>The recipe you requested does not exist.</p>
+    </div>
+
+    <br>
+    <a href="/recipes">Back to Recipes</a>
+</body>
+</html>
+
+

@@ -1,5 +1,7 @@
-org\seweb\reciperecommenderxmljava\RecipeRecommenderXmlJavaApplication.class
 org\seweb\reciperecommenderxmljava\model\AppUser.class
-org\seweb\reciperecommenderxmljava\model\Recipe.class
 org\seweb\reciperecommenderxmljava\service\package-info.class
+org\seweb\reciperecommenderxmljava\RecipeRecommenderXmlJavaApplication.class
+org\seweb\reciperecommenderxmljava\model\Recipe.class
+org\seweb\reciperecommenderxmljava\controller\RecipeController.class
+org\seweb\reciperecommenderxmljava\service\XmlService.class
 org\seweb\reciperecommenderxmljava\controller\HomeController.class

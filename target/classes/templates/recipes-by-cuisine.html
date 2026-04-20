@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes by Cuisine</title>
+</head>
+<body>
+    <h1>Recipes by Cuisine</h1>
+
+    <form action="/recipes/by-cuisine" method="get">
+        <label for="cuisine">Cuisine:</label>
+        <select id="cuisine" name="cuisine" required>
+            <option value="" th:selected="${cuisine == null}">Select cuisine</option>
+            <option value="Italian" th:selected="${cuisine == 'Italian'}">Italian</option>
+            <option value="Asian" th:selected="${cuisine == 'Asian'}">Asian</option>
+            <option value="Mexican" th:selected="${cuisine == 'Mexican'}">Mexican</option>
+            <option value="French" th:selected="${cuisine == 'French'}">French</option>
+            <option value="Romanian" th:selected="${cuisine == 'Romanian'}">Romanian</option>
+            <option value="Indian" th:selected="${cuisine == 'Indian'}">Indian</option>
+            <option value="American" th:selected="${cuisine == 'American'}">American</option>
+            <option value="Mediterranean" th:selected="${cuisine == 'Mediterranean'}">Mediterranean</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    <div th:if="${cuisine != null and !#strings.isEmpty(cuisine)}">
+        <h2 th:text="'Cuisine: ' + ${cuisine}"></h2>
+        <p th:text="'Found: ' + ${#lists.size(recipes)} + ' recipes'"></p>
+    </div>
+
+    <p th:if="${cuisine == null or #strings.isEmpty(cuisine)}">Select a cuisine and press Search.</p>
+
+    <table border="1" cellpadding="10" th:if="${cuisine != null and !#strings.isEmpty(cuisine) and recipes.size() > 0}">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Cuisine 1</th>
+                <th>Cuisine 2</th>
+                <th>Difficulty</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="recipe : ${recipes}">
+                <td th:text="${recipe.id}"></td>
+                <td th:text="${recipe.title}"></td>
+                <td th:text="${recipe.cuisineType1}"></td>
+                <td th:text="${recipe.cuisineType2}"></td>
+                <td th:text="${recipe.difficulty}"></td>
+                <td><a th:href="@{/recipe/{id}(id=${recipe.id})}">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p th:if="${cuisine != null and !#strings.isEmpty(cuisine) and recipes.size() == 0}">No recipes found for this cuisine.</p>
+
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+
+
+
