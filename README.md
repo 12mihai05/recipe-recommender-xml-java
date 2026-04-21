@@ -39,6 +39,6 @@ Dynamic XSL transformation with conditional background colors based on user skil
 ---
 
 ## Setup and Running
-1. Clone the repository: git clone 
+1. Clone the repository: git clone https://github.com/12mihai05/recipe-recommender-xml-java
 2. Navigate to project root and run: mvn spring-boot:run
 3. Open browser at: http://localhost:8080
