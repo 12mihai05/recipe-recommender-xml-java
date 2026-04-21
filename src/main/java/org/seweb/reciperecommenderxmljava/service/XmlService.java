@@ -250,11 +250,45 @@ public class XmlService {
             rootElement.appendChild(newRecipeElement);
 
             writeXmlFile(doc, recipesXmlPath);
+            System.out.println("WRITING TO:");
+            System.out.println(new File(usersXmlPath).getAbsolutePath());
+
         } catch (Exception e) {
             System.err.println("Error saving recipe: " + e.getMessage());
         }
     }
 
+    public void deleteRecipe(int id) {
+        try {
+            Document doc = parseXmlFile(recipesXmlPath);
+            if (doc == null) return;
+
+            NodeList recipes = doc.getElementsByTagName("recipe");
+
+            for (int i = 0; i < recipes.getLength(); i++) {
+                Element recipe = (Element) recipes.item(i);
+                int recipeId = Integer.parseInt(recipe.getElementsByTagName("id").item(0).getTextContent());
+
+                if (recipeId == id) {
+                    recipe.getParentNode().removeChild(recipe);
+                    break;
+                }
+            }
+
+            writeXmlFile(doc, recipesXmlPath);
+
+        } catch (Exception e) {
+            System.err.println("Error deleting recipe: " + e.getMessage());
+        }
+    }
+    public int generateNextRecipeId() {
+        List<Recipe> recipes = getAllRecipes();
+
+        return recipes.stream()
+                .map(Recipe::getId)
+                .max(Integer::compareTo)
+                .orElse(0) + 1;
+    }
     public void saveUser(AppUser user) {
         try {
             Document doc = parseXmlFile(usersXmlPath);
@@ -283,8 +317,38 @@ public class XmlService {
             rootElement.appendChild(newUserElement);
 
             writeXmlFile(doc, usersXmlPath);
+            System.out.println("WRITING TO:");
+            System.out.println(new File(usersXmlPath).getAbsolutePath());
         } catch (Exception e) {
             System.err.println("Error saving user: " + e.getMessage());
+        }
+    }
+
+    public void deleteUser(String key) {
+        try {
+            Document doc = parseXmlFile(usersXmlPath);
+            if (doc == null) return;
+
+            NodeList users = doc.getElementsByTagName("user");
+
+            for (int i = 0; i < users.getLength(); i++) {
+                Element user = (Element) users.item(i);
+
+                String firstName = getElementText(user, "firstName");
+                String lastName = getElementText(user, "lastName");
+
+                String userKey = firstName + "_" + lastName;
+
+                if (userKey.equals(key)) {
+                    user.getParentNode().removeChild(user);
+                    break;
+                }
+            }
+
+            writeXmlFile(doc, usersXmlPath);
+
+        } catch (Exception e) {
+            System.err.println("Error deleting user: " + e.getMessage());
         }
     }
 
@@ -303,8 +367,6 @@ public class XmlService {
 
     private void writeXmlFile(Document doc, String filePath) throws TransformerException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        transformerFactory.setFeature(XMLConstants.ACCESS_EXTERNAL_DTD, false);
-        transformerFactory.setFeature(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, false);
         Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty("indent", "yes");
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");

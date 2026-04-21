@@ -4,32 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Users</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <h1>All Users</h1>
-    <p th:text="'Total: ' + ${#lists.size(users)} + ' users'"></p>
+    <div th:replace="navbar.html :: navbar"></div>
+    <div class="page-container">
+        <div class="card">
+            <h1>All Users</h1>
+            <p th:text="'Total: ' + ${#lists.size(users)} + ' users'"></p>
 
-    <table border="1" cellpadding="10">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Skill Level</th>
-                <th>Preferred Cuisine</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="user : ${users}">
-                <td th:text="${user.firstName}"></td>
-                <td th:text="${user.lastName}"></td>
-                <td th:text="${user.skillLevel}"></td>
-                <td th:text="${user.preferredCuisineType}"></td>
-            </tr>
-        </tbody>
-    </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Skill Level</th>
+                        <th>Preferred Cuisine</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.firstName}"></td>
+                        <td th:text="${user.lastName}"></td>
+                        <td th:text="${user.skillLevel}"></td>
+                        <td th:text="${user.preferredCuisineType}"></td>
+                        <td class="action-cell">
+                            <form th:action="@{/users/delete/{id}(id=${user.firstName + '_' + user.lastName})}"
+                                  method="post"
+                                  style="display:inline;">
 
-    <br>
-    <a href="/">Back to Home</a>
+                                <button type="submit"
+                                        onclick="return confirm('Delete this user?')"
+                                        class="btn-delete">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
 

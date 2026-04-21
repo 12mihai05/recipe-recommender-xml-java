@@ -1,104 +1,197 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<recipes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="recipes.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<recipes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="recipes.xsd">
+
     <recipe>
+
         <id>1</id>
+
         <title>Spaghetti Carbonara</title>
+
         <cuisineType1>Italian</cuisineType1>
+
         <cuisineType2>Mediterranean</cuisineType2>
+
         <difficulty>Intermediate</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>2</id>
+
         <title>Chicken Teriyaki Bowl</title>
+
         <cuisineType1>Asian</cuisineType1>
+
         <cuisineType2>American</cuisineType2>
+
         <difficulty>Beginner</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>3</id>
+
         <title>Beef Tacos</title>
+
         <cuisineType1>Mexican</cuisineType1>
+
         <cuisineType2>American</cuisineType2>
+
         <difficulty>Beginner</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>4</id>
+
         <title>Chicken Tikka Masala</title>
+
         <cuisineType1>Indian</cuisineType1>
+
         <cuisineType2>Asian</cuisineType2>
+
         <difficulty>Advanced</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>5</id>
+
         <title>Romanian Cabbage Rolls</title>
+
         <cuisineType1>Romanian</cuisineType1>
+
         <cuisineType2>Mediterranean</cuisineType2>
+
         <difficulty>Intermediate</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>6</id>
+
         <title>Greek Chicken Salad</title>
+
         <cuisineType1>Mediterranean</cuisineType1>
+
         <cuisineType2>American</cuisineType2>
+
         <difficulty>Beginner</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>7</id>
+
         <title>French Onion Soup</title>
+
         <cuisineType1>French</cuisineType1>
+
         <cuisineType2>American</cuisineType2>
+
         <difficulty>Intermediate</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>8</id>
+
         <title>Veggie Fried Rice</title>
+
         <cuisineType1>Asian</cuisineType1>
+
         <cuisineType2>Mediterranean</cuisineType2>
+
         <difficulty>Beginner</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>9</id>
+
         <title>Margherita Pizza</title>
+
         <cuisineType1>Italian</cuisineType1>
+
         <cuisineType2>American</cuisineType2>
+
         <difficulty>Beginner</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>10</id>
+
         <title>Lentil Curry</title>
+
         <cuisineType1>Indian</cuisineType1>
+
         <cuisineType2>Romanian</cuisineType2>
+
         <difficulty>Intermediate</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>11</id>
+
         <title>Fish Quesadillas</title>
+
         <cuisineType1>Mexican</cuisineType1>
+
         <cuisineType2>Mediterranean</cuisineType2>
+
         <difficulty>Intermediate</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>12</id>
+
         <title>Roasted Vegetable Couscous</title>
+
         <cuisineType1>Mediterranean</cuisineType1>
+
         <cuisineType2>French</cuisineType2>
+
         <difficulty>Beginner</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>13</id>
+
         <title>Beef Stir Fry</title>
+
         <cuisineType1>Asian</cuisineType1>
+
         <cuisineType2>Italian</cuisineType2>
+
         <difficulty>Intermediate</difficulty>
+
     </recipe>
+
     <recipe>
+
         <id>14</id>
         <title>Chicken Parmesan</title>
         <cuisineType1>Italian</cuisineType1>
         <cuisineType2>French</cuisineType2>
         <difficulty>Advanced</difficulty>
     </recipe>
+
     <recipe>
         <id>15</id>
         <title>Turkey Burgers</title>
@@ -106,6 +199,7 @@
         <cuisineType2>Romanian</cuisineType2>
         <difficulty>Beginner</difficulty>
     </recipe>
+
     <recipe>
         <id>16</id>
         <title>Paneer Butter Masala</title>
@@ -113,6 +207,7 @@
         <cuisineType2>Asian</cuisineType2>
         <difficulty>Advanced</difficulty>
     </recipe>
+
     <recipe>
         <id>17</id>
         <title>French Crepes</title>
@@ -120,6 +215,7 @@
         <cuisineType2>Italian</cuisineType2>
         <difficulty>Intermediate</difficulty>
     </recipe>
+
     <recipe>
         <id>18</id>
         <title>Chicken Burrito Bowl</title>
@@ -127,6 +223,7 @@
         <cuisineType2>American</cuisineType2>
         <difficulty>Beginner</difficulty>
     </recipe>
+
     <recipe>
         <id>19</id>
         <title>Romanian Bean Stew</title>
@@ -134,6 +231,7 @@
         <cuisineType2>Mediterranean</cuisineType2>
         <difficulty>Intermediate</difficulty>
     </recipe>
+
     <recipe>
         <id>20</id>
         <title>Salmon Pasta Bake</title>
@@ -141,6 +239,12 @@
         <cuisineType2>American</cuisineType2>
         <difficulty>Advanced</difficulty>
     </recipe>
+
+    <recipe>
+        <id>21</id>
+        <title>Turkey Burgers</title>
+        <cuisineType1>Indian</cuisineType1>
+        <cuisineType2>Italian</cuisineType2>
+        <difficulty>Beginner</difficulty>
+    </recipe>
 </recipes>
-
-

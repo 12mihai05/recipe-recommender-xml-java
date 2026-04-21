@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Recipe</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="navbar.html :: navbar"></div>
+    <div class="page-container">
+        <div class="card">
+            <span class="badge">New Entry</span>
+            <h1>Add Recipe</h1>
+
+            <p th:if="${error}" style="color:red;">
+                <span th:text="${error}"></span>
+            </p>
+
+            <form action="/recipes/add" method="post">
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" name="title">
+                </div>
+
+                <div class="form-group">
+                    <label>Cuisine 1</label>
+                    <select name="cuisineType1">
+                        <option>Italian</option>
+                        <option>Asian</option>
+                        <option>Mexican</option>
+                        <option>French</option>
+                        <option>Romanian</option>
+                        <option>Indian</option>
+                        <option>American</option>
+                        <option>Mediterranean</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Cuisine 2</label>
+                    <select name="cuisineType2">
+                        <option>Italian</option>
+                        <option>Asian</option>
+                        <option>Mexican</option>
+                        <option>French</option>
+                        <option>Romanian</option>
+                        <option>Indian</option>
+                        <option>American</option>
+                        <option>Mediterranean</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Difficulty</label>
+                    <select name="difficulty">
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Save</button>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

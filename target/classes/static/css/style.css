@@ -19,7 +19,7 @@ body {
 
 .card {
     width: 100%;
-    max-width: 720px;
+    max-width: 1100px;
     background: #ffffff;
     border-radius: 18px;
     padding: 40px;
@@ -132,4 +132,133 @@ h1 {
 .detail-section p {
     margin: 8px 0;
     line-height: 1.6;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    padding: 14px 24px;
+    display: flex;
+    gap: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar a {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background: #dbeafe;
+}
+
+.navbar a.active {
+    background: #1d4ed8;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+
+.match-yellow {
+    background-color: #fef08a !important;
+}
+
+.no-match-green {
+    background-color: #dcfce7 !important;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+.action-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.btn-view {
+    padding: 6px 12px;
+    background: #3b82f6;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+}
+
+.btn-view:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.btn-delete {
+    padding: 6px 12px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-delete:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.inline-form {
+    display: inline;
+    margin: 0;
 }
