@@ -132,7 +132,7 @@
                     <div class="card">
 
                         <h1>Recipes (XSL View)</h1>
-                        <p style="background:#eff6ff; padding:10px; border-radius:8px; font-weight:600;">
+                        <p class="user-skill-display">
                             Selected User Skill:
                             <xsl:value-of select="$userSkill"/>
                         </p>

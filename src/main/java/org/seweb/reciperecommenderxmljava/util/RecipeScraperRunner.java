@@ -1,5 +1,6 @@
 package org.seweb.reciperecommenderxmljava.util;
 
+import jakarta.annotation.Nullable;
 import org.seweb.reciperecommenderxmljava.service.XmlService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -20,21 +21,19 @@ public class RecipeScraperRunner implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) {
+    public void run(@Nullable String... args) {
         if (!scraperEnabled) {
             return;
         }
 
         try {
-            int imported = recipeScraperUtil.importBudgetAutumnRecipes(xmlService, 20);
+            int imported = recipeScraperUtil.importBudgetAutumnRecipes(20);
             boolean valid = xmlService.validateRecipesXml();
 
             System.out.println("Scraper imported " + imported + " new recipes.");
             System.out.println("recipes.xml valid against XSD: " + valid);
         } catch (Exception e) {
-            // Keep startup safe even if scraping fails.
             System.err.println("Scraper failed: " + e.getMessage());
         }
     }
 }
-

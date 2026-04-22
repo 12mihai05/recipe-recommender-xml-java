@@ -45,3 +45,4 @@ Scraper (Jsoup) that fetches recipe data from the BBC Good Food Budget Autumn co
 1. Clone the repository: git clone https://github.com/12mihai05/recipe-recommender-xml-java
 2. Navigate to project root and run: mvn spring-boot:run
 3. Open browser at: http://localhost:8080
+

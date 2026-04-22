@@ -210,6 +210,7 @@ input:focus, select:focus {
     border: none;
     border-radius: 8px;
     font-weight: 600;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -261,4 +262,128 @@ input:focus, select:focus {
 .inline-form {
     display: inline;
     margin: 0;
+}
+
+.user-info-card {
+    background: #667eea;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.user-info-card p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.skill-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.recipes-count {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+}
+
+.recommended-recipes-heading {
+    margin-top: 30px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.difficulty-span {
+    background: #dbeafe;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.no-recommendations {
+    padding: 20px;
+    background: #fef9c3;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.no-recommendations p {
+    margin: 0;
+    color: #92400e;
+}
+
+.no-recommendations-text {
+    font-size: 14px;
+}
+
+.no-user-section {
+    padding: 30px;
+    text-align: center;
+    background: #f3f4f6;
+    border-radius: 8px;
+}
+
+.no-user-section h2 {
+    color: #dc2626;
+}
+
+.no-user-section p {
+    color: #6b7280;
+}
+
+.add-user-btn {
+    margin-top: 10px;
+}
+
+.user-label-text {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.user-select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    font-size: 16px;
+}
+
+.color-guide {
+    margin-top: 20px;
+    padding: 15px;
+    background: none;
+    border: none;
+}
+
+.color-guide p {
+    margin: 5px 0;
+}
+
+.color-guide-title {
+    font-weight: bold;
+}
+
+.color-yellow-example {
+    background: #fef9c3;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.color-green-example {
+    background: #dcfce7;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.user-skill-display {
+    background:#eff6ff;
+    padding:10px;
+    border-radius:8px;
+    font-weight:600;
 }

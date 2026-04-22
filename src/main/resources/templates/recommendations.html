@@ -44,12 +44,18 @@
                     </tbody>
                 </table>
 
-                <p th:if="${recipes == null || recipes.size() == 0}">No recommendations available.</p>
+                <div class="no-recommendations" th:if="${recipes == null || recipes.size() == 0}">
+                    <p>
+                        <strong>No recommendations found</strong><br/>
+                        <span class="no-recommendations-text">Try changing user preferences or adding more recipes</span>
+                    </p>
+                </div>
             </div>
 
-            <div th:if="${user == null}">
+            <div class="no-user-section" th:if="${user == null}">
                 <h2>No User Found</h2>
-                <p>Unable to load user data for recommendations.</p>
+                <p>Please add a user first to get personalized recommendations.</p>
+                <a href="/users/add" class="btn-primary add-user-btn">Add User</a>
             </div>
         </div>
     </div>

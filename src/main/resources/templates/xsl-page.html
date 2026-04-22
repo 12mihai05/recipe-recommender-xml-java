@@ -12,7 +12,8 @@
 <div class="page-container">
     <div class="card">
 
-        <h1>Select User</h1>
+        <h1>Select User for XSL View</h1>
+        <p class="user-label-text">Choose a user to see recipes styled based on their cooking skill level</p>
 
         <form action="/xsl/recipes" method="get">
             <div class="form-group">
@@ -26,6 +27,12 @@
             <button type="submit" class="btn-primary">Apply</button>
 
         </form>
+
+        <div class="color-guide">
+            <p class="color-guide-title">Color Coding in XSL View:</p>
+            <p><span class="color-yellow-example">Yellow</span> = Recipes matching user's skill level</p>
+            <p><span class="color-green-example">Green</span> = Other recipes</p>
+        </div>
 
     </div>
 </div>
