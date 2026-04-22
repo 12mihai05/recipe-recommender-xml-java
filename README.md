@@ -2,6 +2,9 @@
 
 Java Spring Boot application using XML, XPath, and XSLT for recipe management and personalized recommendations.
 
+## GitHub Repository
+https://github.com/12mihai05/recipe-recommender-xml-java
+
 ## Screenshots and Features
 
 ### 1. Data Management
@@ -24,7 +27,7 @@ Dynamic XSL transformation with conditional background colors based on user skil
 * Green Background: Non-matching recipes.
 ![XSL View](images/Img1.png)
 
-### 5. Scrapping Recipes
+### 5. Scraping Recipes
 Scraper (Jsoup) that fetches recipe data from the BBC Good Food Budget Autumn collection (https://www.bbcgoodfood.com/recipes/collection/budget-autumn),
 
 ---
@@ -37,7 +40,7 @@ Scraper (Jsoup) that fetches recipe data from the BBC Good Food Budget Autumn co
 
 ## Team Members and Contributions
 * Mihai Pasaroiu: XML Data Layer, XSD Schema definition, XPath Query implementation, XML Persistence (Reading/Saving) logic and scrapper for recipes.
-* Alexia Nica: UI/UX Design, Navigation and Navigation flow, Thymeleaf Integration, Recommendation logic implementation, and XSL Transformation styling.
+* Alexia Nica: UI/UX Design, Navigation flow, Thymeleaf Integration, Recommendation logic implementation, and XSL Transformation styling.
 
 ---
 
