@@ -24,6 +24,9 @@ Dynamic XSL transformation with conditional background colors based on user skil
 * Green Background: Non-matching recipes.
 ![XSL View](images/Img1.png)
 
+### 5. Scrapping Recipes
+Scraper (Jsoup) that fetches recipe data from the BBC Good Food Budget Autumn collection (https://www.bbcgoodfood.com/recipes/collection/budget-autumn),
+
 ---
 
 ## Tech Stack
@@ -33,7 +36,7 @@ Dynamic XSL transformation with conditional background colors based on user skil
 * Frontend: Thymeleaf, CSS3
 
 ## Team Members and Contributions
-* Mihai Pasaroiu: XML Data Layer, XSD Schema definition, XPath Query implementation, and XML Persistence (Reading/Saving) logic.
+* Mihai Pasaroiu: XML Data Layer, XSD Schema definition, XPath Query implementation, XML Persistence (Reading/Saving) logic and scrapper for recipes.
 * Alexia Nica: UI/UX Design, Navigation and Navigation flow, Thymeleaf Integration, Recommendation logic implementation, and XSL Transformation styling.
 
 ---

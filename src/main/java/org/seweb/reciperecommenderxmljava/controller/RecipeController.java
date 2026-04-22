@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.seweb.reciperecommenderxmljava.model.Recipe;
 import org.seweb.reciperecommenderxmljava.model.AppUser;
 import org.seweb.reciperecommenderxmljava.service.XmlService;
+import org.seweb.reciperecommenderxmljava.util.RecipeScraperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -31,16 +33,19 @@ public class RecipeController {
     @Autowired
     private XmlService xmlService;
 
+    @Autowired
+    private RecipeScraperUtil recipeScraperUtil;
+
     @GetMapping("/recipes")
     public String allRecipes(Model model) {
-        List<Recipe> recipes = xmlService.getAllRecipes();
+        List<Recipe> recipes = recipeScraperUtil.getScrapedRecipes();
         model.addAttribute("recipes", recipes);
         return "recipes";
     }
 
     @PostMapping("/recipes/delete/{id}")
     public String deleteRecipe(@PathVariable int id) {
-        xmlService.deleteRecipe(id);
+        recipeScraperUtil.deleteScrapedRecipe(id);
         return "redirect:/recipes";
     }
 
@@ -66,14 +71,14 @@ public class RecipeController {
             return "add-recipe";
         }
         Recipe recipe = new Recipe(
-                xmlService.generateNextRecipeId(),
+                0,
                 title,
                 cuisineType1,
                 cuisineType2,
                 difficulty
         );
 
-        xmlService.saveRecipe(recipe);
+        recipeScraperUtil.addScrapedRecipe(recipe);
         return "redirect:/recipes";
     }
 
@@ -89,12 +94,9 @@ public class RecipeController {
             @RequestParam(required = false) String userName
     ) throws Exception {
 
-        String xmlPath = "src/main/resources/xml/recipes.xml";
         String xslPath = "src/main/resources/xml/recipes.xsl";
 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new File(xmlPath));
+        Document doc = buildRecipesDocument(recipeScraperUtil.getScrapedRecipes());
 
         TransformerFactory tf = TransformerFactory.newInstance();
         StreamSource xsl = new StreamSource(new File(xslPath));
@@ -156,7 +158,7 @@ public class RecipeController {
 
     @GetMapping("/recipe/{id}")
     public String recipeDetails(@PathVariable int id, Model model) {
-        Recipe recipe = xmlService.getRecipeById(id);
+        Recipe recipe = recipeScraperUtil.getScrapedRecipeById(id);
         model.addAttribute("recipe", recipe);
         return "recipe-detail";
     }
@@ -166,7 +168,7 @@ public class RecipeController {
         List<Recipe> recipes = new ArrayList<>();
 
         if (cuisine != null && !cuisine.isBlank()) {
-            recipes = xmlService.getRecipesByCuisine(cuisine);
+            recipes = recipeScraperUtil.getScrapedRecipesByCuisine(cuisine);
         }
 
         model.addAttribute("recipes", recipes);
@@ -180,7 +182,7 @@ public class RecipeController {
         List<Recipe> recommendedRecipes = null;
 
         if (firstUser != null) {
-            recommendedRecipes = xmlService.getRecipesBySkillAndCuisine(
+            recommendedRecipes = recipeScraperUtil.getScrapedRecipesBySkillAndCuisine(
                 firstUser.getSkillLevel(),
                 firstUser.getPreferredCuisineType()
             );
@@ -189,6 +191,33 @@ public class RecipeController {
         model.addAttribute("user", firstUser);
         model.addAttribute("recipes", recommendedRecipes);
         return "recommendations";
+    }
+
+    private Document buildRecipesDocument(List<Recipe> recipes) throws ParserConfigurationException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.newDocument();
+
+        org.w3c.dom.Element root = doc.createElement("recipes");
+        doc.appendChild(root);
+
+        for (Recipe recipe : recipes) {
+            org.w3c.dom.Element recipeElement = doc.createElement("recipe");
+            appendTextElement(doc, recipeElement, "id", String.valueOf(recipe.getId()));
+            appendTextElement(doc, recipeElement, "title", recipe.getTitle());
+            appendTextElement(doc, recipeElement, "cuisineType1", recipe.getCuisineType1());
+            appendTextElement(doc, recipeElement, "cuisineType2", recipe.getCuisineType2());
+            appendTextElement(doc, recipeElement, "difficulty", recipe.getDifficulty());
+            root.appendChild(recipeElement);
+        }
+
+        return doc;
+    }
+
+    private void appendTextElement(Document doc, org.w3c.dom.Element parent, String tag, String value) {
+        org.w3c.dom.Element element = doc.createElement(tag);
+        element.setTextContent(value == null ? "" : value);
+        parent.appendChild(element);
     }
 }
 
